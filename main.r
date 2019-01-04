@@ -1,10 +1,7 @@
 library(tmap)
 library(sf)
 
-# qtm(shape, fill="D12", text="NAME_1", text.size="AREA", text.root=6, fill.title="Morsures de scorpions", fill.textNA="Aucune donnee", style="cobalt")
-
-shape <- read_sf(dsn = "./shp", layer = "gadm36_DZA_1") #READING THE SAPE FILE
-qtm(shape)
+shape <- read_sf(dsn = "./shp", layer = "gadm36_DZA_1") #READING THE SHAPE FILE
 
 ########################### FIRST MAP ########################### 
 tm <- tm_shape(shape) +
