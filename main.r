@@ -1,0 +1,73 @@
+library(tmap)
+library(sf)
+
+# qtm(shape, fill="D12", text="NAME_1", text.size="AREA", text.root=6, fill.title="Morsures de scorpions", fill.textNA="Aucune donnee", style="cobalt")
+
+shape <- read_sf(dsn = "./shp", layer = "gadm36_DZA_1") #READING THE SAPE FILE
+qtm(shape)
+
+########################### FIRST MAP ########################### 
+tm <- tm_shape(shape) +
+tm_fill("MAP1", title = "Legende", style = "fixed",
+        breaks = c(0, 150, 400, 600, 1000, 2500),
+        textNA = "Donnee inconnue") +
+tm_borders() +
+tm_text("NAME_1", size="AREA", root=10)+
+tm_style("bw",legend.frame = TRUE, bg.color="lightblue", legend.bg.color="lightblue")+
+tm_compass(type = "rose", show.labels=2) +
+tm_credits("Algerie", size=1.3,fontfamily="Z003") +
+tm_layout("Year 2011 Map1",
+          fontfamily="Z003",
+          title.size=1.8,
+          legend.title.size = 1.5,
+          legend.text.size = 1.3,
+          legend.position = c("left","bottom"),
+          legend.bg.color = "white",
+          legend.bg.alpha = 0.7)+
+tm_scale_bar()
+tmap_save(tm, "map1.png", width=4000, height=3000)
+ 
+########################### SECOND MAP ########################### 
+
+tm[2]<-tm_fill("MAP2", title = "Legende", style = "fixed",
+        breaks = c(0, 100, 200, 300, 500, 1000),
+        textNA = "Donnee inconnue")
+tm[8]<-tm_layout("Year 2011 Map2",
+          fontfamily="Z003",
+          title.size=1.8,
+          legend.title.size = 1.5,
+          legend.text.size = 1.3,
+          legend.position = c("left","bottom"),
+          legend.bg.color = "white",
+          legend.bg.alpha = 0.7)
+tmap_save(tm, "map2.png", width=4000, height=3000)
+
+########################### THIRD MAP ########################### 
+
+tm[2]<-tm_fill("MAP3", title = "Legende", style = "fixed",
+        breaks = c(0, 100, 200, 300, 500, 1000),
+        textNA = "Donnee inconnue") 
+tm[8]<-tm_layout("Year 2011 Map3",
+          fontfamily="Z003",
+          title.size=1.8,
+          legend.title.size = 1.5,
+          legend.text.size = 1.3,
+          legend.position = c("left","bottom"),
+          legend.bg.color = "white",
+          legend.bg.alpha = 0.7)
+tmap_save(tm, "map3.png", width=4000, height=3000)
+
+########################### FOURTH MAP ########################### 
+
+tm[2]<-tm_fill("MAP4", title = "Legende", style = "fixed",
+        breaks = c(0, 50, 150, 200, 300, 1000),
+        textNA = "Donnee inconnue") 
+tm[8]<-tm_layout("Year 2011 Map4",
+          fontfamily="Z003",
+          title.size=1.8,
+          legend.title.size = 1.5,
+          legend.text.size = 1.3,
+          legend.position = c("left","bottom"),
+          legend.bg.color = "white",
+          legend.bg.alpha = 0.7)
+tmap_save(tm, "map4.png", width=4000, height=3000)
