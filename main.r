@@ -9,7 +9,7 @@ qtm(shape)
 ########################### FIRST MAP ########################### 
 tm <- tm_shape(shape) +
 tm_fill("MAP1", title = "Legende", style = "fixed",
-        breaks = c(0, 150, 400, 600, 1000, 2500),
+        breaks = c(0, 70, 200, 400, 700, 2100),
         textNA = "Donnee inconnue") +
 tm_borders() +
 tm_text("NAME_1", size="AREA", root=10)+
@@ -30,7 +30,7 @@ tmap_save(tm, "map1.png", width=4000, height=3000)
 ########################### SECOND MAP ########################### 
 
 tm[2]<-tm_fill("MAP2", title = "Legende", style = "fixed",
-        breaks = c(0, 100, 200, 300, 500, 1000),
+        breaks = c(0, 25, 100, 250, 400, 1000),
         textNA = "Donnee inconnue")
 tm[8]<-tm_layout("Year 2011 Map2",
           fontfamily="Z003",
@@ -45,7 +45,7 @@ tmap_save(tm, "map2.png", width=4000, height=3000)
 ########################### THIRD MAP ########################### 
 
 tm[2]<-tm_fill("MAP3", title = "Legende", style = "fixed",
-        breaks = c(0, 100, 200, 300, 500, 1000),
+        breaks = c(0, 40, 100, 200, 300, 1200),
         textNA = "Donnee inconnue") 
 tm[8]<-tm_layout("Year 2011 Map3",
           fontfamily="Z003",
@@ -60,7 +60,7 @@ tmap_save(tm, "map3.png", width=4000, height=3000)
 ########################### FOURTH MAP ########################### 
 
 tm[2]<-tm_fill("MAP4", title = "Legende", style = "fixed",
-        breaks = c(0, 50, 150, 200, 300, 1000),
+        breaks = c(0, 30, 100, 200, 250, 1000),
         textNA = "Donnee inconnue") 
 tm[8]<-tm_layout("Year 2011 Map4",
           fontfamily="Z003",
