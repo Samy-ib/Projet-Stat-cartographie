@@ -1,2 +1,2 @@
 # Projet-Stat-cartographie
-Cartes creer avec R
+Cartes crées avec R
